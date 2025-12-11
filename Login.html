@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ログイン画面</title>
+<style>
+    body {
+        background: #222;
+        font-family: "Helvetica", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: #fff;
+        width: 700px;
+        padding: 40px 0;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+    label {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 350px;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        outline: none;
+    }
+
+    .btn {
+        width: 360px;
+        padding: 12px;
+        background: #222;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+        margin-top: 10px;
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+    }
+
+    .info-text {
+        font-size: 13px;
+        color: #333;
+        margin-top: 15px;
+    }
+
+    .btn-secondary {
+        margin-top: 10px;
+        background: #444;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>ログイン</h1>
+
+        <label for="userId">ID</label>
+        <input type="text" id="userId" placeholder="Value" />
+
+        <label for="password">パスワード</label>
+        <input type="password" id="password" placeholder="Value" />
+
+        <button class="btn" onclick="login()">サインイン</button>
+
+        <p class="info-text">IDまたは、パスワードを忘れた場合</p>
+        <button class="btn btn-secondary">再発行</button>
+    </div>
+
+<script>
+function login() {
+    alert("ログイン処理を実行");
+}
+</script>
+</body>
+</html>
