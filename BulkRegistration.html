@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠管理システム - メニュー</title>
+    <link rel="stylesheet" href="BulkStyle.css">
+</head>
+<body>
+    <div class="container">
+        <header class="system-header">
+            <div class="header-left">メニュー</div>
+            <nav class="header-nav">
+                <a href="#" class="nav-item active" data-tab="tab-input">勤務入力</a>
+                <a href="#" class="nav-item" data-tab="tab-batch">一括登録</a>
+                <a href="#" class="nav-item" data-tab="tab-status">勤務状況一覧表示</a>
+                <a href="#" class="nav-item" data-tab="tab-board">掲示板</a>
+            </nav>
+        </header>
+
+        <div class="main-content">
+            
+            <div id="tab-input" class="tab-content active">
+                <h2 class="section-title">勤務入力</h2>
+                <div class="time-display">
+                    <p>現在の時刻 : <span id="current-time">YYYY-MM-DDThh:mm:ss</span></p>
+                </div>
+                <div class="button-area">
+                    <button id="check-in-btn" class="action-btn btn-primary">出勤</button>
+                    <button id="check-out-btn" class="action-btn btn-primary">退勤</button>
+                </div>
+            </div>
+
+            <div id="tab-batch" class="tab-content">
+                <h2 class="section-title">勤務・連絡先一括登録</h2>
+                <form id="batch-form">
+                    <div class="form-group">
+                        <label for="workplace">勤務先</label>
+                        <input type="text" id="workplace" name="workplace" placeholder="Value">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">電話番号</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Value">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス</label>
+                        <input type="email" id="email" name="email" placeholder="Value">
+                    </div>
+                    <button type="submit" class="btn btn-register">登録</button>
+                </form>
+            </div>
+            
+            <div id="tab-status" class="tab-content"></div>
+            <div id="tab-board" class="tab-content"></div>
+
+            <p id="message" class="system-message"></p>
+        </div>
+    </div>
+    <script src="BulkScript.js"></script>
+</body>
+</html>

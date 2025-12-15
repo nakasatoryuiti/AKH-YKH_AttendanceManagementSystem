@@ -1,0 +1,120 @@
+/* 全体のスタイルと背景 */
+body {
+    font-family: sans-serif;
+    background-color: #2c2c2c; /* ダークな背景色 */
+    color: #000;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* 水平中央寄せ */
+    align-items: flex-start; /* 垂直上部から配置 */
+    min-height: 100vh;
+    padding-top: 50px; /* 上部に余白 */
+    box-sizing: border-box;
+}
+
+/* メインコンテナ（白いボックス） */
+.container {
+    width: 800px; /* 幅を調整 */
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* ヘッダーの境界線を内部に収める */
+}
+
+/* システムヘッダー（メニューとナビゲーションを含む上部エリア） */
+.system-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-left {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ナビゲーション（タブメニュー） */
+.header-nav {
+    display: flex;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #000;
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+/* 選択中のタブの下線（画像デザインを再現） */
+.nav-item.active {
+    font-weight: bold;
+    /* 画像ではアクティブなタブに下線や区切りがないため、ここでは単に太字にしています。 */
+    /* 区切り線が必要な場合は border-right: 1px solid #ccc; などを追加 */
+}
+
+/* メインコンテンツエリア */
+.main-content {
+    padding: 40px;
+    text-align: center;
+}
+
+/* セクションタイトル */
+.section-title {
+    font-size: 20px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* 時刻表示エリア */
+.time-display {
+    font-size: 18px;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+
+#current-time {
+    font-weight: bold;
+    /* 実際の表示では、画像のようにモノスペースフォント（等幅）を使うと見やすいです */
+    font-family: monospace; 
+}
+
+/* ボタン配置エリア */
+.button-area {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* ボタン間のスペース */
+    margin-top: 50px;
+}
+
+/* 勤怠アクションボタン（出勤/退勤） */
+.action-btn {
+    width: 250px; /* 幅を調整 */
+    padding: 20px 30px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    box-sizing: border-box;
+}
+
+/* プライマリボタン（画像のようなダークなスタイル） */
+.btn-primary {
+    background-color: #333; /* 濃い灰色/黒 */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #444;
+}
+
+/* メッセージ表示エリア（任意） */
+.system-message {
+    margin-top: 30px;
+    font-size: 14px;
+    color: green;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠管理システム - 一括登録</title>
+    <link rel="stylesheet" href="AttendanceStyle.css">
+</head>
+<body>
+    <div class="container">
+        <header class="system-header">
+            <div class="header-left">メニュー</div>
+            <nav class="header-nav">
+                <a href="#" class="nav-item">勤務入力</a>
+                <a href="#" class="nav-item active">一括登録</a>
+                <a href="#" class="nav-item">勤務状況一覧表示</a>
+                <a href="#" class="nav-item">掲示板</a>
+            </nav>
+        </header>
+
+        <div class="main-content">
+            
+            <h2 class="section-title">勤務・連絡先一括登録</h2>
+            
+            <form id="batch-form">
+                <div class="form-group">
+                    <label for="workplace">勤務先</label>
+                    <input type="text" id="workplace" name="workplace" placeholder="Value" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">電話番号</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Value" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス</label>
+                    <input type="email" id="email" name="email" placeholder="Value" required>
+                </div>
+                
+                <button type="submit" class="btn btn-register">登録</button>
+            </form>
+
+            <p id="message" class="system-message"></p>
+        </div>
+    </div>
+    <script src="AttendanceScript.js"></script>
+</body>
+</html>
