@@ -1,29 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
     const batchForm = document.getElementById('batch-form');
     const messageElement = document.getElementById('message');
+    const workplaceInput = document.getElementById('workplace');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+
+    // ログインユーザーIDを取得
+    const loggedInUser = sessionStorage.getItem('loggedInUser');
+    
+    if (!loggedInUser) {
+        alert('ログインしてください。');
+        window.location.href = 'Login.html';
+        return;
+    }
+
+    // --- ページロード時に現在の連絡先情報をフォームに表示 ---
+    const currentData = JSON.parse(localStorage.getItem('attendanceData') || '[]');
+    const currentUser = currentData.find(item => item.id === loggedInUser);
+    
+    if (currentUser) {
+        workplaceInput.value = currentUser.workplace || '';
+        phoneInput.value = currentUser.phone || '';
+        emailInput.value = currentUser.email || '';
+    }
 
     batchForm.addEventListener('submit', (e) => {
-        // e.preventDefault(); はブラウザのネイティブ検証が失敗した場合、
-        // そもそも実行されないため、ここでは削除または条件付きで残すのが一般的です。
-
-        // ネイティブ検証をパスした場合、このブロックが実行される
-
-        // フォームが送信されるのを一旦止め、非同期処理を想定した処理を行います
         e.preventDefault(); 
         
-        // 値は取得できますが、検証ロジックはHTMLに任せます。
-        const workplace = document.getElementById('workplace').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const email = document.getElementById('email').value.trim();
+        // フォームの値を取得
+        const workplace = workplaceInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const email = emailInput.value.trim();
 
-        // 実際の登録処理（APIコールなど）をここに記述
-        console.log(`登録データ: ${workplace}, ${phone}, ${email}`);
+        // --- localStorageの勤怠データを更新 ---
+        const data = JSON.parse(localStorage.getItem('attendanceData') || '[]');
+        const userIndex = data.findIndex(item => item.id === loggedInUser);
         
-        // 登録完了メッセージ
-        messageElement.textContent = '勤務先・連絡先の一括登録が完了しました。';
-        messageElement.style.color = 'green';
-        
-        // フォームのリセット（任意）
-        // batchForm.reset(); 
+        if (userIndex !== -1) {
+            // 連絡先・勤務場所情報を更新
+            data[userIndex].workplace = workplace;
+            data[userIndex].phone = phone;
+            data[userIndex].email = email;
+            
+            // localStorageに書き戻す
+            localStorage.setItem('attendanceData', JSON.stringify(data));
+            
+            messageElement.textContent = '勤務先・連絡先の一括登録が完了しました。';
+            messageElement.style.color = 'green';
+        } else {
+             messageElement.textContent = 'エラー: ユーザーデータが見つかりません。';
+             messageElement.style.color = 'red';
+        }
     });
 });
