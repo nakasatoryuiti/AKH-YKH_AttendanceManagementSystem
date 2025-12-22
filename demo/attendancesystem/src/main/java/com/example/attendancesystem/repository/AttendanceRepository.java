@@ -1,5 +1,4 @@
-package com.example.attendancesystem.repository;
-
+package com.example.attendancesystem.repository; // ← ここが正しいか確認
 import com.example.attendancesystem.model.Attendance;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -7,3 +6,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AttendanceRepository extends JpaRepository<Attendance, String> {
 }
+
